@@ -1,9 +1,9 @@
-import * as fs from "node:fs/promises";
-import path from "node:path";
+
+import { readContacts } from "../utils/readContacts.js";
 
 export const getAllContacts = async () => {
-    const data = await fs.readFile(path.resolve("./src/db/db.json"), "utf-8");
-    return JSON.parse(data);
+    const data = await readContacts();
+    return data;
 };
 
 console.log(await getAllContacts());
